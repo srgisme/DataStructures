@@ -59,11 +59,17 @@ class DataStructuresTests: XCTestCase {
         
     }
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testMinimumSpanningTree() {
+        
+        self.graph.minimumSpanningTree(source: self.from)
+        
+        var nodeOrder: [String] = []
+        self.graph.dfs(node: self.from) { (node) in
+            nodeOrder.append(node.data)
         }
+        
+        XCTAssert(nodeOrder == ["A", "B", "C", "D", "E"], "node order actually is \(nodeOrder).")
+        
     }
 
 }

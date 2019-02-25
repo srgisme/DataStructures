@@ -117,9 +117,7 @@ public class Graph<T: CustomStringConvertible>: NSObject {
                     return true
                 }
                 
-                dequeued.node.neighbors.forEach({ n in
-                    queue.append(n)
-                })
+                dequeued.node.neighbors.forEach({ queue.append($0) })
                 
             }
             
@@ -146,6 +144,37 @@ public class Graph<T: CustomStringConvertible>: NSObject {
             
             if !visitedNodes.contains(neighbor) {
                 self.depthFirstSearch(node: neighbor, process: process, visitedNodes: &visitedNodes)
+            }
+            
+        }
+        
+    }
+    
+    public func minimumSpanningTree(source: Node) {
+        
+        var visitedNodes: Set<Node> = []
+        var queue = [source]
+        
+        while !queue.isEmpty {
+            
+            let dequeued = queue.removeFirst()
+            
+            if !visitedNodes.contains(dequeued) {
+                
+                visitedNodes.insert(dequeued)
+                var newNeighbors: [(Node, Double)] = []
+                
+                for i in 0 ..< dequeued.neighbors.count {
+                    
+                    if !visitedNodes.contains(dequeued.neighbors[i].node) {
+                        newNeighbors.append(dequeued.neighbors[i])
+                        queue.append(dequeued.neighbors[i].node)
+                    }
+                    
+                }
+                
+                dequeued.neighbors = newNeighbors
+                
             }
             
         }
