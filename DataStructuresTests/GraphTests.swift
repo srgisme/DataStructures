@@ -9,7 +9,7 @@
 import XCTest
 @testable import DataStructures
 
-class DataStructuresTests: XCTestCase {
+class GraphTests: XCTestCase {
     
     var graph = Graph<String>(nodes: [])
     weak var from: Graph<String>.Node!
