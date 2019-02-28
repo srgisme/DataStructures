@@ -69,4 +69,28 @@ public class BSTNode<T: Comparable>: NSObject {
         
     }
     
+    public func inorder(_ process: (BSTNode<T>) -> Void) {
+        
+        left?.inorder(process)
+        process(self)
+        right?.inorder(process)
+        
+    }
+    
+    public func preorder(_ process: (BSTNode<T>) -> Void) {
+        
+        process(self)
+        left?.preorder(process)
+        right?.preorder(process)
+        
+    }
+    
+    public func postorder(_ process: (BSTNode<T>) -> Void) {
+        
+        left?.postorder(process)
+        right?.postorder(process)
+        process(self)
+        
+    }
+    
 }
