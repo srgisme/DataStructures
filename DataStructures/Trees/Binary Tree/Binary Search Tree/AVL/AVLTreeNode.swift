@@ -8,14 +8,14 @@
 
 import Foundation
 
-public protocol AVL: BinarySearchTree {
+public protocol AVLTreeNode: BinarySearchTreeNode {
     
     var height: Int { get set }
     var balanceFactor: Int { get }
     
 }
 
-extension AVL {
+extension AVLTreeNode {
     
     public var balanceFactor: Int {
         

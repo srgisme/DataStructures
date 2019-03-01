@@ -9,7 +9,7 @@
 import XCTest
 @testable import DataStructures
 
-final class BinarySearchTreeNodeMock<T: Comparable>: NSObject, BinarySearchTree {
+final class BinarySearchTreeNodeMock<T: Comparable>: NSObject, BinarySearchTreeNode {
     
     var left: BinarySearchTreeNodeMock?
     var right: BinarySearchTreeNodeMock?
@@ -28,18 +28,19 @@ class BinarySearchTreeTests: XCTestCase {
     var bst = BinarySearchTreeNodeMock(50)
     
     override func setUp() {
-        bst.insertIntoBinarySearchTree(33)
-        bst.insertIntoBinarySearchTree(45)
-        bst.insertIntoBinarySearchTree(79)
-        bst.insertIntoBinarySearchTree(61)
-        bst.insertIntoBinarySearchTree(20)
-        bst.insertIntoBinarySearchTree(87)
+        bst.insert(33)
+        bst.insert(45)
+        bst.insert(79)
+        bst.insert(61)
+        bst.insert(20)
+        bst.insert(87)
     }
 
     override func tearDown() {
         bst = BinarySearchTreeNodeMock(50)
     }
 
+    // MARK: - BinaryTreeDepthFirstTraversal
     func testInorder() {
         
         var resultString = ""
@@ -73,6 +74,17 @@ class BinarySearchTreeTests: XCTestCase {
         }
         
         XCTAssert(resultString == "20-45-33-61-87-79-50-")
+        
+    }
+    
+    // MARK: - BinarySearchTree Search
+    func testSearch() {
+        
+        let nodeToFind = bst.search(61)
+        XCTAssert(nodeToFind != nil, "nodeToFind should not be nil.")
+        
+        let shouldNotFind = bst.search(18)
+        XCTAssert(shouldNotFind == nil, "shouldNotFind should be nil.")
         
     }
 

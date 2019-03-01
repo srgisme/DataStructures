@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol BinaryTree: DepthFirstTraversing {
+public protocol BinaryTreeNode: BinaryTreeDepthFirstTraversing {
     
     associatedtype Value
     
@@ -19,9 +19,10 @@ public protocol BinaryTree: DepthFirstTraversing {
     
     init(_ value: Value)
     
+    
 }
 
-extension BinaryTree {
+extension BinaryTreeNode {
     
     public var isLeftChild: Bool {
         return parent?.left === self

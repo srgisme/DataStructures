@@ -8,26 +8,26 @@
 
 import Foundation
 
-public protocol BinarySearchTree: BinaryTree {
+public protocol BinarySearchTreeNode: BinaryTreeNode {
     
     associatedtype T: Comparable
     
-    var value: T { get }
+    var value: T { get set }
     
     init(_ value: T)
-    func insertIntoBinarySearchTree(_ value: T)
-    func searchBinarySearchTree(_ value: T) -> Self?
+    func insert(_ value: T)
+    func search(_ value: T) -> Self?
     
 }
 
-extension BinarySearchTree {
+extension BinarySearchTreeNode {
     
-    public func insertIntoBinarySearchTree(_ value: T) {
+    public func insert(_ value: T) {
         
         if value < self.value {
             
             if left != nil {
-                left?.insertIntoBinarySearchTree(value)
+                left?.insert(value)
             } else {
                 left = Self(value)
             }
@@ -35,7 +35,7 @@ extension BinarySearchTree {
         } else if value > self.value {
             
             if right != nil {
-                right?.insertIntoBinarySearchTree(value)
+                right?.insert(value)
             } else {
                 right = Self(value)
             }
@@ -44,12 +44,12 @@ extension BinarySearchTree {
         
     }
     
-    public func searchBinarySearchTree(_ value: T) -> Self? {
+    public func search(_ value: T) -> Self? {
         
         if value < self.value {
-            return left?.searchBinarySearchTree(value)
+            return left?.search(value)
         } else if value > self.value {
-            return right?.searchBinarySearchTree(value)
+            return right?.search(value)
         }
         
         return self

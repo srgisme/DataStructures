@@ -12,7 +12,7 @@ public enum DepthFirstTraversalType {
     case preorder, inorder, postorder
 }
 
-public protocol DepthFirstTraversing: NSObjectProtocol {
+public protocol BinaryTreeDepthFirstTraversing: NSObjectProtocol {
     
     var left: Self? { get }
     var right: Self? { get }
@@ -20,7 +20,7 @@ public protocol DepthFirstTraversing: NSObjectProtocol {
     
 }
 
-extension DepthFirstTraversing {
+extension BinaryTreeDepthFirstTraversing {
     
     public func depthFirstTraversal(_ traversalType: DepthFirstTraversalType, _ process: (Self) -> Void) {
         
