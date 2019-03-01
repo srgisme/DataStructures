@@ -9,28 +9,42 @@
 import XCTest
 @testable import DataStructures
 
+final class BinarySearchTreeNodeMock<T: Comparable>: NSObject, BinarySearchTree {
+    
+    var left: BinarySearchTreeNodeMock?
+    var right: BinarySearchTreeNodeMock?
+    var parent: BinarySearchTreeNodeMock?
+    
+    var value: T
+    
+    required init(_ value: T) {
+        self.value = value
+    }
+    
+}
+
 class BinarySearchTreeTests: XCTestCase {
     
-    var bst = BSTNode(50)
+    var bst = BinarySearchTreeNodeMock(50)
     
     override func setUp() {
-        bst.insert(33)
-        bst.insert(45)
-        bst.insert(79)
-        bst.insert(61)
-        bst.insert(20)
-        bst.insert(87)
+        bst.insertIntoBinarySearchTree(33)
+        bst.insertIntoBinarySearchTree(45)
+        bst.insertIntoBinarySearchTree(79)
+        bst.insertIntoBinarySearchTree(61)
+        bst.insertIntoBinarySearchTree(20)
+        bst.insertIntoBinarySearchTree(87)
     }
 
     override func tearDown() {
-        bst = BSTNode(50)
+        bst = BinarySearchTreeNodeMock(50)
     }
 
     func testInorder() {
         
         var resultString = ""
         
-        bst.inorder { (node) in
+        bst.depthFirstTraversal(.inorder) { (node) in
             resultString.append("\(node.value)-")
         }
         
@@ -42,7 +56,7 @@ class BinarySearchTreeTests: XCTestCase {
         
         var resultString = ""
         
-        bst.preorder { (node) in
+        bst.depthFirstTraversal(.preorder) { (node) in
             resultString.append("\(node.value)-")
         }
         
@@ -54,7 +68,7 @@ class BinarySearchTreeTests: XCTestCase {
         
         var resultString = ""
         
-        bst.postorder { (node) in
+        bst.depthFirstTraversal(.postorder) { (node) in
             resultString.append("\(node.value)-")
         }
         
