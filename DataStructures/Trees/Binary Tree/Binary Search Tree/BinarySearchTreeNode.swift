@@ -29,7 +29,9 @@ extension BinarySearchTreeNode {
             if left != nil {
                 left?.insert(value)
             } else {
-                left = Self(value)
+                let newNode = Self(value)
+                newNode.parent = self
+                left = newNode
             }
             
         } else if value > self.value {
@@ -37,7 +39,9 @@ extension BinarySearchTreeNode {
             if right != nil {
                 right?.insert(value)
             } else {
-                right = Self(value)
+                let newNode = Self(value)
+                newNode.parent = self
+                right = newNode
             }
             
         }

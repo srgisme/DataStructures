@@ -38,6 +38,10 @@ struct Queue<T> {
         
     }
     
+    public init(elements: [T]) {
+        elements.forEach({ push($0) })
+    }
+    
     public mutating func push(_ value: T) {
         
         let newNode = LinkedListNode(value)
