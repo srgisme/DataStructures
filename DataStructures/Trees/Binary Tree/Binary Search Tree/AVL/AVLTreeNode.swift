@@ -8,20 +8,49 @@
 
 import Foundation
 
-public protocol AVLTreeNode: BinarySearchTreeNode {
+public protocol AVLTreeNode: BinarySearchTreeNode, AVLTreeBalancing {
     
-    var height: Int { get set }
-    var balanceFactor: Int { get }
+    var balanceFactor: Int { get set }
     
 }
 
 extension AVLTreeNode {
     
-    public var balanceFactor: Int {
+    public func insert(_ value: T) {
         
-        let leftHeight = left?.height ?? 0
-        let rightHeight = right?.height ?? 0
-        return rightHeight - leftHeight
+        if value < self.value {
+            
+            if left != nil {
+                return left!.insert(value)
+            } else {
+                
+                let newNode = Self(value)
+                newNode.balanceFactor = 0
+                newNode.parent = self
+                left = newNode
+                
+                var rotationType: AVLTreeRotationType? = nil
+                newNode.balance(rotationType: &rotationType)
+                
+            }
+            
+        } else if value > self.value {
+            
+            if right != nil {
+                return right!.insert(value)
+            } else {
+                
+                let newNode = Self(value)
+                newNode.balanceFactor = 0
+                newNode.parent = self
+                right = newNode
+                
+                var rotationType: AVLTreeRotationType? = nil
+                newNode.balance(rotationType: &rotationType)
+                
+            }
+            
+        }
         
     }
     

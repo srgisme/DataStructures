@@ -9,21 +9,21 @@
 import XCTest
 @testable import DataStructures
 
-final class BinarySearchTreeNodeMock<T: Comparable>: NSObject, BinarySearchTreeNode {
-    
-    var left: BinarySearchTreeNodeMock?
-    var right: BinarySearchTreeNodeMock?
-    var parent: BinarySearchTreeNodeMock?
-    
-    var value: T
-    
-    required init(_ value: T) {
-        self.value = value
-    }
-    
-}
-
 class BinarySearchTreeTests: XCTestCase {
+    
+    final class BinarySearchTreeNodeMock<T: Comparable>: NSObject, BinarySearchTreeNode {
+        
+        var left: BinarySearchTreeNodeMock?
+        var right: BinarySearchTreeNodeMock?
+        weak var parent: BinarySearchTreeNodeMock?
+        
+        var value: T
+        
+        required init(_ value: T) {
+            self.value = value
+        }
+        
+    }
     
     var bst = BinarySearchTreeNodeMock(50)
     

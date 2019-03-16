@@ -23,6 +23,8 @@
 		62CDA21021E59CFC00E1E8F1 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CDA20F21E59CFC00E1E8F1 /* Graph.swift */; };
 		62CDA21221E7AD0800E1E8F1 /* Trie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CDA21121E7AD0800E1E8F1 /* Trie.swift */; };
 		62CDA28121F423C300E1E8F1 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CDA28021F423C300E1E8F1 /* Tree.swift */; };
+		62FDA622223C1C29000259D9 /* AVLTreeBalancing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FDA621223C1C29000259D9 /* AVLTreeBalancing.swift */; };
+		62FDA624223CA028000259D9 /* AVLTreeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FDA623223CA028000259D9 /* AVLTreeTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		62CDA20F21E59CFC00E1E8F1 /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 		62CDA21121E7AD0800E1E8F1 /* Trie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trie.swift; sourceTree = "<group>"; };
 		62CDA28021F423C300E1E8F1 /* Tree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
+		62FDA621223C1C29000259D9 /* AVLTreeBalancing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVLTreeBalancing.swift; sourceTree = "<group>"; };
+		62FDA623223CA028000259D9 /* AVLTreeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVLTreeTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,7 @@
 			children = (
 				62386F5622278EDD0000F308 /* AVLTreeNode.swift */,
 				6282FB50222B140B00A3AEC9 /* AVLTreeRotating.swift */,
+				62FDA621223C1C29000259D9 /* AVLTreeBalancing.swift */,
 			);
 			path = AVL;
 			sourceTree = "<group>";
@@ -124,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				62386F5822285E550000F308 /* BinarySearchTreeTests.swift */,
+				62FDA623223CA028000259D9 /* AVLTreeTests.swift */,
 			);
 			path = "Binary Tree Tests";
 			sourceTree = "<group>";
@@ -305,6 +311,7 @@
 				62CDA28121F423C300E1E8F1 /* Tree.swift in Sources */,
 				629ED40F2227883500581F5D /* BinarySearchTreeNode.swift in Sources */,
 				629ED3D42226E72E00581F5D /* LinkedList.swift in Sources */,
+				62FDA622223C1C29000259D9 /* AVLTreeBalancing.swift in Sources */,
 				62CDA21021E59CFC00E1E8F1 /* Graph.swift in Sources */,
 				62386F5722278EDD0000F308 /* AVLTreeNode.swift in Sources */,
 				6282FB48222995FB00A3AEC9 /* BinaryTreeDepthFirstTraversing+DepthFirstTraversalType.swift in Sources */,
@@ -319,6 +326,7 @@
 				62386F5922285E550000F308 /* BinarySearchTreeTests.swift in Sources */,
 				62CDA20721E56C8400E1E8F1 /* GraphTests.swift in Sources */,
 				629ED3D62226EC9D00581F5D /* QueueTests.swift in Sources */,
+				62FDA624223CA028000259D9 /* AVLTreeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
