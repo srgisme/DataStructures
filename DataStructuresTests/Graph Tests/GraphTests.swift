@@ -36,7 +36,7 @@ class GraphTests: XCTestCase {
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        graph.nodes.removeAll()
     }
 
     func testDijkstra() {
@@ -69,6 +69,25 @@ class GraphTests: XCTestCase {
         }
         
         XCTAssert(nodeOrder == ["A", "B", "C", "D", "E"], "node order actually is \(nodeOrder).")
+        
+    }
+    
+    func testOneConnectedComponent() {
+        XCTAssert(graph.connectedComponents() == 1)
+    }
+    
+    func testThreeConnectedComponents() {
+        
+        graph.nodes.first(where: { $0.data == "A" })?.neighbors.removeAll(where: { $0.node.data == "D" })
+        graph.nodes.first(where: { $0.data == "D" })?.neighbors.removeAll(where: { $0.node.data == "A" })
+        
+        graph.nodes.first(where: { $0.data == "C" })?.neighbors.removeAll(where: { $0.node.data == "B" })
+        graph.nodes.first(where: { $0.data == "B" })?.neighbors.removeAll(where: { $0.node.data == "C" })
+        
+        graph.nodes.first(where: { $0.data == "C" })?.neighbors.removeAll(where: { $0.node.data == "E" })
+        graph.nodes.first(where: { $0.data == "E" })?.neighbors.removeAll(where: { $0.node.data == "C" })
+        
+        XCTAssert(graph.connectedComponents() == 2)
         
     }
 

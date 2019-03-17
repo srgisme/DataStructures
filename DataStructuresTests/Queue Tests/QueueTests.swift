@@ -14,13 +14,13 @@ class QueueTests: XCTestCase {
     var queue = Queue<Int>()
     
     override func setUp() {
-        queue.push(1)
-        queue.push(2)
-        queue.pop()
-        queue.push(3)
-        queue.pop()
-        queue.push(4)
-        queue.push(5)
+        queue.enqueue(1)
+        queue.enqueue(2)
+        queue.dequeue()
+        queue.enqueue(3)
+        queue.dequeue()
+        queue.enqueue(4)
+        queue.enqueue(5)
     }
 
     override func tearDown() {
@@ -35,9 +35,9 @@ class QueueTests: XCTestCase {
     
     func testPop() {
         
-        let first = queue.pop()!
-        let second = queue.pop()!
-        let third = queue.pop()!
+        let first = queue.dequeue()!
+        let second = queue.dequeue()!
+        let third = queue.dequeue()!
         
         XCTAssert(first == 3, "The first popped value should have been 3, but it was instead \(first).")
         XCTAssert(second == 4, "The second popped value should have been 4, but it was instead \(second).")

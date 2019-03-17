@@ -8,12 +8,12 @@
 
 import Foundation
 
-class LinkedListNode<T>: NSObject {
+public class LinkedListNode<T>: NSObject {
     
-    var next: LinkedListNode?
-    var value: T
+    public var next: LinkedListNode?
+    public var value: T
     
-    init(_ value: T) {
+    public init(_ value: T) {
         self.value = value
     }
     

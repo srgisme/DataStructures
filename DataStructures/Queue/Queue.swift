@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Queue<T> {
+public struct Queue<T> {
     
     private var head: LinkedListNode<T>?
     private var tail: LinkedListNode<T>?
@@ -39,10 +39,10 @@ struct Queue<T> {
     }
     
     public init(elements: [T]) {
-        elements.forEach({ push($0) })
+        elements.forEach({ enqueue($0) })
     }
     
-    public mutating func push(_ value: T) {
+    public mutating func enqueue(_ value: T) {
         
         let newNode = LinkedListNode(value)
         
@@ -61,7 +61,7 @@ struct Queue<T> {
         
     }
     
-    public mutating func pop() -> T? {
+    public mutating func dequeue() -> T? {
         
         guard let popped = head?.value else {
             return nil

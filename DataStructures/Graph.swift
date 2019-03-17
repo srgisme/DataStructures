@@ -181,4 +181,27 @@ public class Graph<T: CustomStringConvertible>: NSObject {
         
     }
     
+    public func connectedComponents() -> Int {
+        
+        guard !nodes.isEmpty else {
+            return 0
+        }
+        
+        var count = 0
+        var unvisitedNodes = Set(nodes)
+        
+        while let unvisited = unvisitedNodes.popFirst() {
+            
+            count += 1
+            
+            dfs(node: unvisited) { (node) in
+                unvisitedNodes.remove(node)
+            }
+            
+        }
+        
+        return count
+        
+    }
+    
 }
