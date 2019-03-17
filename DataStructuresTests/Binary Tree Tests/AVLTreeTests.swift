@@ -34,6 +34,14 @@ class AVLTreeTests: XCTestCase {
     
     override func setUp() {
         
+    }
+
+    override func tearDown() {
+        avlTree.root = nil
+    }
+
+    func testRightRotation() {
+        
         avlTree.root = AVLTreeNodeMock(50)
         avlTree.root?.insert(70)
         avlTree.root?.insert(30)
@@ -41,20 +49,34 @@ class AVLTreeTests: XCTestCase {
         avlTree.root?.insert(20)
         avlTree.root?.insert(10)
         
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testRightRotation() {
+        avlTree.root = avlTree.root?.parent
         
-        XCTAssert(avlTree.root?.parent?.value == 30)
-        XCTAssert(avlTree.root?.parent?.left?.value == 20)
-        XCTAssert(avlTree.root?.parent?.left?.left?.value == 10)
-        XCTAssert(avlTree.root?.value == 50)
-        XCTAssert(avlTree.root?.right?.value == 70)
-        XCTAssert(avlTree.root?.left?.value == 40)
+        XCTAssert(avlTree.root?.value == 30)
+        XCTAssert(avlTree.root?.left?.value == 20)
+        XCTAssert(avlTree.root?.left?.left?.value == 10)
+        XCTAssert(avlTree.root?.right?.value == 50)
+        XCTAssert(avlTree.root?.right?.right?.value == 70)
+        XCTAssert(avlTree.root?.right?.left?.value == 40)
+        
+    }
+    
+    func testLeftRotation() {
+        
+        avlTree.root = AVLTreeNodeMock(50)
+        avlTree.root?.insert(70)
+        avlTree.root?.insert(30)
+        avlTree.root?.insert(80)
+        avlTree.root?.insert(60)
+        avlTree.root?.insert(90)
+        
+        avlTree.root = avlTree.root?.parent
+        
+        XCTAssert(avlTree.root?.value == 70)
+        XCTAssert(avlTree.root?.left?.value == 50)
+        XCTAssert(avlTree.root?.left?.left?.value == 30)
+        XCTAssert(avlTree.root?.left?.right?.value == 60)
+        XCTAssert(avlTree.root?.right?.value == 80)
+        XCTAssert(avlTree.root?.right?.right?.value == 90)
         
     }
 

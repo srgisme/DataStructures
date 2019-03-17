@@ -59,7 +59,24 @@ extension AVLTreeRotating {
             }
             
         case .right:
-            break
+            
+            let pivot = right
+            let rotationSubtree = pivot?.left
+            
+            right = rotationSubtree
+            rotationSubtree?.parent = self
+            
+            pivot?.left = self
+            parent = pivot
+            
+            pivot?.parent = originalParent
+            
+            if wasLeftChild == true {
+                originalParent?.left = pivot
+            } else if wasRightChild == true {
+                originalParent?.right = pivot
+            }
+            
         case .leftRight:
             break
         case .rightLeft:
