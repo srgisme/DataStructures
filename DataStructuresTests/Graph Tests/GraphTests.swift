@@ -15,13 +15,13 @@ class GraphTests: XCTestCase {
     weak var from: Graph<String>.Node!
     weak var to: Graph<String>.Node!
     
+    let a = Graph.Node(data: "A")
+    let b = Graph.Node(data: "B")
+    let c = Graph.Node(data: "C")
+    let d = Graph.Node(data: "D")
+    let e = Graph.Node(data: "E")
+    
     override func setUp() {
-        
-        let a = Graph.Node(data: "A")
-        let b = Graph.Node(data: "B")
-        let c = Graph.Node(data: "C")
-        let d = Graph.Node(data: "D")
-        let e = Graph.Node(data: "E")
         
         a.neighbors = [(b, 3), (d, 6), (e, 3)]
         b.neighbors = [(a, 3), (c, 10)]
@@ -73,7 +73,7 @@ class GraphTests: XCTestCase {
     }
     
     func testOneConnectedComponent() {
-        XCTAssert(graph.connectedComponents() == 1)
+        XCTAssert(graph.connectedComponents() == [Set(graph.nodes)])
     }
     
     func testThreeConnectedComponents() {
@@ -87,7 +87,8 @@ class GraphTests: XCTestCase {
         graph.nodes.first(where: { $0.data == "C" })?.neighbors.removeAll(where: { $0.node.data == "E" })
         graph.nodes.first(where: { $0.data == "E" })?.neighbors.removeAll(where: { $0.node.data == "C" })
         
-        XCTAssert(graph.connectedComponents() == 2)
+        let connectedComponents = graph.connectedComponents()
+        XCTAssert(connectedComponents.contains([c, d]) && connectedComponents.contains([a, b, e]) && connectedComponents.count == 2)
         
     }
 

@@ -181,26 +181,31 @@ public class Graph<T: CustomStringConvertible>: NSObject {
         
     }
     
-    public func connectedComponents() -> Int {
+    public func connectedComponents() -> [Set<Node>] {
         
         guard !nodes.isEmpty else {
-            return 0
+            return []
         }
         
-        var count = 0
+        var connectedComponents: [Set<Node>] = [[]]
         var unvisitedNodes = Set(nodes)
         
         while let unvisited = unvisitedNodes.popFirst() {
             
-            count += 1
+            if connectedComponents == [[]] {
+                connectedComponents[0].insert(unvisited)
+            } else {
+                connectedComponents.append([unvisited])
+            }
             
             dfs(node: unvisited) { (node) in
                 unvisitedNodes.remove(node)
+                connectedComponents[connectedComponents.count - 1].insert(node)
             }
             
         }
         
-        return count
+        return connectedComponents
         
     }
     
