@@ -11,7 +11,7 @@ import Foundation
 public struct Queue<T> {
     
     private var head: LinkedListNode<T>?
-    private var tail: LinkedListNode<T>?
+    private weak var tail: LinkedListNode<T>?
     
     public var count = 0
     public var isEmpty: Bool {
