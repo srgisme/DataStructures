@@ -24,8 +24,8 @@ class AlgorithmsTests: XCTestCase {
     func testMergeSort() {
         
         let defaultSorted = [-100, -55, 0, 12, 15, 23, 23, 88]
-        XCTAssert(testArray.mergeSort(<) == defaultSorted)
-        XCTAssert(testArray.mergeSort(>) == defaultSorted.reversed())
+        XCTAssertEqual(testArray.mergeSort(<), defaultSorted)
+        XCTAssertEqual(testArray.mergeSort(>), defaultSorted.reversed())
         
     }
 

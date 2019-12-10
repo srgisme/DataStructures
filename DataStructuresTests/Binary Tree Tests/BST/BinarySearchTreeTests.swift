@@ -11,20 +11,6 @@ import XCTest
 
 class BinarySearchTreeTests: XCTestCase {
     
-    final class BinarySearchTreeNodeMock<T: Comparable>: NSObject, BinarySearchTreeNode {
-        
-        var left: BinarySearchTreeNodeMock?
-        var right: BinarySearchTreeNodeMock?
-        weak var parent: BinarySearchTreeNodeMock?
-        
-        var value: T
-        
-        required init(_ value: T) {
-            self.value = value
-        }
-        
-    }
-    
     var bst = BinarySearchTreeNodeMock(50)
     
     override func setUp() {
@@ -49,7 +35,7 @@ class BinarySearchTreeTests: XCTestCase {
             resultString.append("\(node.value)-")
         }
         
-        XCTAssert(resultString == "20-33-45-50-61-79-87-")
+        XCTAssertEqual(resultString, "20-33-45-50-61-79-87-")
         
     }
     
@@ -61,7 +47,7 @@ class BinarySearchTreeTests: XCTestCase {
             resultString.append("\(node.value)-")
         }
         
-        XCTAssert(resultString == "50-33-20-45-79-61-87-")
+        XCTAssertEqual(resultString, "50-33-20-45-79-61-87-")
         
     }
     
@@ -73,7 +59,7 @@ class BinarySearchTreeTests: XCTestCase {
             resultString.append("\(node.value)-")
         }
         
-        XCTAssert(resultString == "20-45-33-61-87-79-50-")
+        XCTAssertEqual(resultString, "20-45-33-61-87-79-50-")
         
     }
     
@@ -81,10 +67,10 @@ class BinarySearchTreeTests: XCTestCase {
     func testSearch() {
         
         let nodeToFind = bst.search(61)
-        XCTAssert(nodeToFind != nil, "nodeToFind should not be nil.")
+        XCTAssertNotNil(nodeToFind, "nodeToFind should not be nil.")
         
         let shouldNotFind = bst.search(18)
-        XCTAssert(shouldNotFind == nil, "shouldNotFind should be nil.")
+        XCTAssertNil(shouldNotFind, "shouldNotFind should be nil.")
         
     }
 

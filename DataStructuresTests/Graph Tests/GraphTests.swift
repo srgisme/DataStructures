@@ -43,7 +43,7 @@ class GraphTests: XCTestCase {
         
         let shortestPath = graph.dijkstraShortestPath(from: to, to: from)
         print(shortestPath ?? "no shortest path found")
-        XCTAssert(shortestPath != nil, "could not properly determine the shortest path.")
+        XCTAssertNotNil(shortestPath, "could not properly determine the shortest path.")
         
     }
     
@@ -55,7 +55,7 @@ class GraphTests: XCTestCase {
             allNodes.append(node.data)
         }
         
-        XCTAssert(allNodes == ["A", "B", "C", "D", "E"], "allNodes = \(allNodes)")
+        XCTAssertEqual(allNodes, ["A", "B", "C", "D", "E"], "allNodes = \(allNodes)")
         
     }
 
@@ -68,12 +68,12 @@ class GraphTests: XCTestCase {
             nodeOrder.append(node.data)
         }
         
-        XCTAssert(nodeOrder == ["A", "B", "C", "D", "E"], "node order actually is \(nodeOrder).")
+        XCTAssertEqual(nodeOrder, ["A", "B", "C", "D", "E"], "node order actually is \(nodeOrder).")
         
     }
     
     func testOneConnectedComponent() {
-        XCTAssert(graph.connectedComponents() == [Set(graph.nodes)])
+        XCTAssertEqual(graph.connectedComponents(), [Set(graph.nodes)])
     }
     
     func testThreeConnectedComponents() {
@@ -88,7 +88,9 @@ class GraphTests: XCTestCase {
         graph.nodes.first(where: { $0.data == "E" })?.neighbors.removeAll(where: { $0.node.data == "C" })
         
         let connectedComponents = graph.connectedComponents()
-        XCTAssert(connectedComponents.contains([c, d]) && connectedComponents.contains([a, b, e]) && connectedComponents.count == 2)
+        XCTAssertTrue(connectedComponents.contains([c, d]))
+        XCTAssertTrue(connectedComponents.contains([a, b, e]))
+        XCTAssertEqual(connectedComponents.count, 2)
         
     }
 

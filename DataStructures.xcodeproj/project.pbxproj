@@ -16,6 +16,8 @@
 		629ED3D62226EC9D00581F5D /* QueueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629ED3D52226EC9D00581F5D /* QueueTests.swift */; };
 		629ED3D82226F2BF00581F5D /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629ED3D72226F2BF00581F5D /* Queue.swift */; };
 		629ED40F2227883500581F5D /* BinarySearchTreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629ED40E2227883500581F5D /* BinarySearchTreeNode.swift */; };
+		62BF025A239F3B4A00CEAE57 /* BinarySearchTreeNodeMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BF0259239F3B4A00CEAE57 /* BinarySearchTreeNodeMock.swift */; };
+		62BF025C239F3C0600CEAE57 /* AVLTreeNodeMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BF025B239F3C0600CEAE57 /* AVLTreeNodeMock.swift */; };
 		62CDA1F821E56C2500E1E8F1 /* DataStructures.h in Headers */ = {isa = PBXBuildFile; fileRef = 62CDA1F621E56C2500E1E8F1 /* DataStructures.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		62CDA1FF21E56C4600E1E8F1 /* Heap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CDA1FE21E56C4600E1E8F1 /* Heap.swift */; };
 		62CDA20721E56C8400E1E8F1 /* GraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CDA20621E56C8400E1E8F1 /* GraphTests.swift */; };
@@ -49,6 +51,8 @@
 		629ED3D52226EC9D00581F5D /* QueueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueTests.swift; sourceTree = "<group>"; };
 		629ED3D72226F2BF00581F5D /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		629ED40E2227883500581F5D /* BinarySearchTreeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinarySearchTreeNode.swift; sourceTree = "<group>"; };
+		62BF0259239F3B4A00CEAE57 /* BinarySearchTreeNodeMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinarySearchTreeNodeMock.swift; sourceTree = "<group>"; };
+		62BF025B239F3C0600CEAE57 /* AVLTreeNodeMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVLTreeNodeMock.swift; sourceTree = "<group>"; };
 		62CDA1F321E56C2500E1E8F1 /* DataStructures.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DataStructures.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		62CDA1F621E56C2500E1E8F1 /* DataStructures.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataStructures.h; sourceTree = "<group>"; };
 		62CDA1F721E56C2500E1E8F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -132,8 +136,8 @@
 		6282FB4F2229A15100A3AEC9 /* Binary Tree Tests */ = {
 			isa = PBXGroup;
 			children = (
-				62386F5822285E550000F308 /* BinarySearchTreeTests.swift */,
-				62FDA623223CA028000259D9 /* AVLTreeTests.swift */,
+				62BF025D239F3C4500CEAE57 /* BST */,
+				62BF025E239F3C4E00CEAE57 /* AVL */,
 			);
 			path = "Binary Tree Tests";
 			sourceTree = "<group>";
@@ -153,6 +157,24 @@
 				6282FB462229910F00A3AEC9 /* Binary Tree */,
 			);
 			path = Trees;
+			sourceTree = "<group>";
+		};
+		62BF025D239F3C4500CEAE57 /* BST */ = {
+			isa = PBXGroup;
+			children = (
+				62BF0259239F3B4A00CEAE57 /* BinarySearchTreeNodeMock.swift */,
+				62386F5822285E550000F308 /* BinarySearchTreeTests.swift */,
+			);
+			path = BST;
+			sourceTree = "<group>";
+		};
+		62BF025E239F3C4E00CEAE57 /* AVL */ = {
+			isa = PBXGroup;
+			children = (
+				62FDA623223CA028000259D9 /* AVLTreeTests.swift */,
+				62BF025B239F3C0600CEAE57 /* AVLTreeNodeMock.swift */,
+			);
+			path = AVL;
 			sourceTree = "<group>";
 		};
 		62CDA1E921E56C2500E1E8F1 = {
@@ -346,10 +368,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62BF025A239F3B4A00CEAE57 /* BinarySearchTreeNodeMock.swift in Sources */,
 				62386F5922285E550000F308 /* BinarySearchTreeTests.swift in Sources */,
 				62FDA64D2240833A000259D9 /* AlgorithmsTests.swift in Sources */,
 				62CDA20721E56C8400E1E8F1 /* GraphTests.swift in Sources */,
 				629ED3D62226EC9D00581F5D /* QueueTests.swift in Sources */,
+				62BF025C239F3C0600CEAE57 /* AVLTreeNodeMock.swift in Sources */,
 				62FDA624223CA028000259D9 /* AVLTreeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
