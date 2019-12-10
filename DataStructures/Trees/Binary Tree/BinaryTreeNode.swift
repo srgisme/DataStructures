@@ -19,7 +19,6 @@ public protocol BinaryTreeNode: BinaryTreeDepthFirstTraversing {
     
     init(_ value: Value)
     
-    
 }
 
 extension BinaryTreeNode {

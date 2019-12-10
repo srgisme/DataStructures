@@ -39,7 +39,7 @@ public struct Queue<T> {
     }
     
     public init(elements: [T]) {
-        elements.forEach({ enqueue($0) })
+        elements.forEach { enqueue($0) }
     }
     
     public mutating func enqueue(_ value: T) {

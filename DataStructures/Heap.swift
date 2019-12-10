@@ -32,9 +32,9 @@ public struct Heap<T: Hashable>: CustomStringConvertible {
         self.isOrderedBefore = isOrderedBefore
         self.values = values
         
-        values.enumerated().forEach({ (i, node) in
+        values.enumerated().forEach { (i, node) in
             self.valueIndex[node] = i
-        })
+        }
         
         self.heapify()
         

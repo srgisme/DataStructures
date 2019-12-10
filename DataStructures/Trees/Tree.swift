@@ -30,13 +30,13 @@ extension TreeNode: CustomStringConvertible {
     
     public var description: String {
         
-        var s = "\(value)"
+        var result = "\(value)"
         
         if !children.isEmpty {
-            s += " {" + children.map { $0.description }.joined(separator: ", ") + "}"
+            result += " {" + children.map { $0.description }.joined(separator: ", ") + "}"
         }
         
-        return s
+        return result
         
     }
     
@@ -46,7 +46,7 @@ extension TreeNode where T: Equatable {
     
     public func removeFromParent() -> TreeNode<T>? {
         
-        guard let index = self.parent?.children.firstIndex(where: {$0.value == self.value }) else {
+        guard let index = self.parent?.children.firstIndex(where: { $0.value == self.value }) else {
             return nil
         }
         
