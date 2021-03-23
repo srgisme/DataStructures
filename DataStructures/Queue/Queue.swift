@@ -60,7 +60,8 @@ public struct Queue<T> {
         count += 1
         
     }
-    
+
+    @discardableResult
     public mutating func dequeue() -> T? {
         
         guard let popped = head?.value else {

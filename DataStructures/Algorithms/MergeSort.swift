@@ -10,7 +10,7 @@ import Foundation
 
 public extension Array where Element: Comparable {
     
-    public func mergeSort(_ comparison: (Element, Element) -> Bool) -> [Element] {
+    func mergeSort(_ comparison: (Element, Element) -> Bool) -> [Element] {
         
         guard count > 1 else {
             return self
